@@ -1,0 +1,22 @@
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
+ 
+http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd"
+
+	version="1.0">
+	<persistence-unit name="JpaPersistenceUnit"
+		transaction-type="RESOURCE_LOCAL">
+		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+		<class>com.pizza.delivery.domain.Drink</class>
+		<class>com.pizza.delivery.domain.Ingredient</class>
+		<class>com.pizza.delivery.domain.Ordering</class>
+		<class>com.pizza.delivery.domain.Person</class>
+		<class>com.pizza.delivery.domain.Pizza</class>
+		<class>com.pizza.delivery.domain.Sauce</class>
+		
+		 <properties>           
+            <property name="hibernate.dialect" value="org.hibernate.dialect.Oracle10gDialect" />
+        </properties>
+	</persistence-unit>
+</persistence>
