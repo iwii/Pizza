@@ -14,9 +14,24 @@ http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd"
 		<class>com.pizza.delivery.domain.Person</class>
 		<class>com.pizza.delivery.domain.Pizza</class>
 		<class>com.pizza.delivery.domain.Sauce</class>
-		
-		 <properties>           
-            <property name="hibernate.dialect" value="org.hibernate.dialect.Oracle10gDialect" />
-        </properties>
+
+		<properties>
+			<!-- <property name="eclipselink.ddl-generation" value="drop-and-create-tables"/> -->
+			<!-- <property name="eclipselink.create-ddl-jdbc-file-name" value="createDDL_ddlGeneration.jdbc"/> -->
+			<!-- <property name="eclipselink.drop-ddl-jdbc-file-name" value="dropDDL_ddlGeneration.jdbc"/> -->
+			<!-- <property name="eclipselink.ddl-generation.output-mode" value="both"/> -->
+<!-- 			<property name="eclipselink.ddl-generation" value="drop-and-create-tables" /> -->
+<!-- 			<property name="eclipselink.ddl-generation.output-mode"	value="database" /> -->
+			<property name="hibernate.dialect" value="org.hibernate.dialect.Oracle10gDialect" />
+		</properties>
 	</persistence-unit>
+
+	<!-- <bean id='jdbcTemplate' -->
+	<!-- class='org.springframework.jdbc.core.simple.SimpleJdbcTemplate'> -->
+	<!-- <constructor-arg type='javax.sql.DataSource' ref='dataSource' /> -->
+	<!-- </bean> -->
+
+	<!-- bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager"> -->
+	<!-- <property name="entityManagerFactory" ref="entityManagerFactory" /> -->
+	<!-- </bean> -->
 </persistence>
