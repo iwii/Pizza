@@ -1,5 +1,9 @@
 package com.pizza.delivery.services;
 
-public interface SauceDAO {
+import java.util.List;
 
+import com.pizza.delivery.domain.Sauce;
+
+public interface SauceDAO<Sauce> extends AbstractDAO<Sauce, Long>{
+	List<Sauce> findByName(String name);
 }

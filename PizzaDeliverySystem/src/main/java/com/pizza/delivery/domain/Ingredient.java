@@ -2,7 +2,6 @@ package com.pizza.delivery.domain;
 
 import java.io.Serializable;
 import javax.persistence.*;
-import java.util.List;
 
 
 /**
@@ -18,7 +17,7 @@ public class Ingredient implements Serializable {
 	@Id
 	@SequenceGenerator(name="INGREDIENT_INGREDIENTID_GENERATOR", sequenceName="INGREDIENT_SEQ")
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="INGREDIENT_INGREDIENTID_GENERATOR")
-	@Column(name="INGREDIENT_ID", unique=true, nullable=false)
+	@Column(name="INGREDIENT_ID", unique=true, nullable=false, precision=19)
 	private long ingredientId;
 
 	@Column(nullable=false, length=20)
@@ -26,13 +25,6 @@ public class Ingredient implements Serializable {
 
 	@Column(nullable=false, precision=126)
 	private double price;
-
-	@Column(name="\"TYPE\"", nullable=false, length=20)
-	private String type;
-
-	//bi-directional many-to-one association to Pizza
-	@OneToMany(mappedBy="ingredient")
-	private List<Pizza> pizzas;
 
 	public Ingredient() {
 	}
@@ -59,36 +51,6 @@ public class Ingredient implements Serializable {
 
 	public void setPrice(double price) {
 		this.price = price;
-	}
-
-	public String getType() {
-		return this.type;
-	}
-
-	public void setType(String type) {
-		this.type = type;
-	}
-
-	public List<Pizza> getPizzas() {
-		return this.pizzas;
-	}
-
-	public void setPizzas(List<Pizza> pizzas) {
-		this.pizzas = pizzas;
-	}
-
-	public Pizza addPizza(Pizza pizza) {
-		getPizzas().add(pizza);
-		pizza.setIngredient(this);
-
-		return pizza;
-	}
-
-	public Pizza removePizza(Pizza pizza) {
-		getPizzas().remove(pizza);
-		pizza.setIngredient(null);
-
-		return pizza;
 	}
 
 }
