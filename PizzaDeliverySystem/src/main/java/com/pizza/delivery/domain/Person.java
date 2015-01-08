@@ -134,5 +134,14 @@ public class Person implements Serializable {
 
 		return ordering;
 	}
+	
+//	@Override
+//	public String toString(){
+//		return "Person" +"personId" + personId +"firstName" + firstName + "lastName" + lastName + 
+//				"telephone" + telephone + "city" + city + "street" + street + "zipcode" + zipcode;
+//		
+//	}
+	
+	
 
 }
