@@ -8,24 +8,70 @@
 <title>Create person</title>
 </head>
 <body>
-	<h1>Add new Person</h1>
+	<div align="top">
 
-	<form:form commandName="person" action="createPerson"	method="POST">
-
-		<form:input path="firstName" />
-		<br />
-		<form:input path="lastName" />
-		<br />
-		<form:input path="telephone" />
-		<br />
-		<form:input path="street" />
-		<br />
-		<form:input path="city" />
-		<br />
-		<form:input path="zipcode" />
-		<br />
-
-		<input type="submit" value="createPerson" />
-	</form:form>
+		<form:form commandName="person" action="createPerson" method="POST">
+			<table border="0">
+				<tr>
+					<td align="center"><h2>Registration</h2></td>
+				</tr>
+				<div align="left">
+				<tr>
+					<td>User Name:</td>
+					<td><form:input path="firstName" tabindex="1" required="true" />
+						<form:errors path="firstName" /></td>
+				</tr>
+				<br />
+				<tr>
+					<td>Last Name:</td>
+					<td><form:input path="lastName" tabindex="2" required="true" />
+						<form:errors path="lastName" /></td>
+				</tr>
+				<br />
+				<tr>
+					<td>Login:</td>
+					<td><form:input path="login" tabindex="2" required="true" />
+						<form:errors path="login" /></td>
+				</tr>
+				<br />
+				<tr>
+					<td>Password:</td>
+					<td><form:input path="password" tabindex="2" required="true" />
+						<form:errors path="password" /></td>
+				</tr>
+				<br />
+				<tr>
+					<td>Telephone:</td>
+					<td><form:input path="telephone" tabindex="3" required="true" />
+						<form:errors path="telephone" /></td>
+				</tr>
+				<br />
+				<tr>
+					<td>Street:</td>
+					<td><form:input path="street" tabindex="4" required="true" />
+						<form:errors path="street" /></td>
+				</tr>
+				<br />
+				<tr>
+					<td>City:</td>
+					<td><form:input path="city" tabindex="5" required="true" /> <form:errors
+							path="city" /></td>
+				</tr>
+				<br />
+				<tr>
+					<td>Zipcode:</td>
+					<td><form:input path="zipcode" tabindex="6" required="true" />
+						<form:errors path="zipcode" /></td>
+				</tr>
+				<br />
+				
+				<tr>
+					<td colspan="2" align="center"><input type="submit"
+						value="createPerson" /></td>
+				</tr>
+				</div>
+			</table>
+		</form:form>
+	</div>
 </body>
 </html>

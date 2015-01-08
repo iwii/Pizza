@@ -2,7 +2,6 @@ package com.pizza.delivery.domain;
 
 import java.io.Serializable;
 import javax.persistence.*;
-import java.util.List;
 
 
 /**
@@ -18,33 +17,38 @@ public class Person implements Serializable {
 	@Id
 	@SequenceGenerator(name="PERSON_PERSONID_GENERATOR", sequenceName="PERSON_SEQ")
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="PERSON_PERSONID_GENERATOR")
-	@Column(name="PERSON_ID", unique=true, nullable=false)
+	@Column(name="PERSON_ID", unique=true, nullable=false, precision=19)
 	private long personId;
 
-	@Column(length=20)
+	@Column(nullable=false, length=20)
 	private String city;
+
+	@Column(nullable=false, length=20)
+	private String email;
 
 	@Column(name="FIRST_NAME", nullable=false, length=20)
 	private String firstName;
 
-	@Column(name="LAST_NAME", length=20)
+	@Column(name="LAST_NAME", nullable=false, length=30)
 	private String lastName;
 
-	@Column(length=20)
+	@Column(nullable=false, length=20)
+	private String login;
+
+	@Column(nullable=false, length=20)
+	private String password;
+
+	@Column(nullable=false, length=20)
 	private String status;
 
-	@Column(length=20)
+	@Column(nullable=false, length=30)
 	private String street;
 
-	@Column(unique=true, length=20)
+	@Column(unique=true, nullable=false, length=9)
 	private String telephone;
 
-	@Column(length=20)
+	@Column(length=6)
 	private String zipcode;
-
-	//bi-directional many-to-one association to Ordering
-	@OneToMany(mappedBy="personBean")
-	private List<Ordering> orderings;
 
 	public Person() {
 	}
@@ -65,6 +69,14 @@ public class Person implements Serializable {
 		this.city = city;
 	}
 
+	public String getEmail() {
+		return this.email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
 	public String getFirstName() {
 		return this.firstName;
 	}
@@ -79,6 +91,22 @@ public class Person implements Serializable {
 
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
+	}
+
+	public String getLogin() {
+		return this.login;
+	}
+
+	public void setLogin(String login) {
+		this.login = login;
+	}
+
+	public String getPassword() {
+		return this.password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public String getStatus() {
@@ -112,36 +140,5 @@ public class Person implements Serializable {
 	public void setZipcode(String zipcode) {
 		this.zipcode = zipcode;
 	}
-
-	public List<Ordering> getOrderings() {
-		return this.orderings;
-	}
-
-	public void setOrderings(List<Ordering> orderings) {
-		this.orderings = orderings;
-	}
-
-	public Ordering addOrdering(Ordering ordering) {
-		getOrderings().add(ordering);
-		ordering.setPersonBean(this);
-
-		return ordering;
-	}
-
-	public Ordering removeOrdering(Ordering ordering) {
-		getOrderings().remove(ordering);
-		ordering.setPersonBean(null);
-
-		return ordering;
-	}
-	
-//	@Override
-//	public String toString(){
-//		return "Person" +"personId" + personId +"firstName" + firstName + "lastName" + lastName + 
-//				"telephone" + telephone + "city" + city + "street" + street + "zipcode" + zipcode;
-//		
-//	}
-	
-	
 
 }
