@@ -28,6 +28,14 @@
 						<form:errors path="lastName" /></td>
 				</tr>
 				<br />
+				
+				<tr>
+					<td>Email:</td>
+					<td><form:input path="email" tabindex="2" required="true" />
+						<form:errors path="email" /></td>
+				</tr>
+				<br />
+				
 				<tr>
 					<td>Login:</td>
 					<td><form:input path="login" tabindex="2" required="true" />
@@ -62,6 +70,13 @@
 					<td>Zipcode:</td>
 					<td><form:input path="zipcode" tabindex="6" required="true" />
 						<form:errors path="zipcode" /></td>
+				</tr>
+				<br />
+				
+				<tr>
+					<td>status:</td>
+					<td><form:input path="status" tabindex="6" required="true" />
+						<form:errors path="status" /></td>
 				</tr>
 				<br />
 				
