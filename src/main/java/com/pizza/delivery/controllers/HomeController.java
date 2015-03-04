@@ -3,6 +3,7 @@ package com.pizza.delivery.controllers;
 //import javax.servlet.http.HttpServletRequest;
 //import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -30,14 +31,14 @@ public class HomeController {
 // 
 //	}
  
-//	@RequestMapping(value = "/admin**", method = RequestMethod.GET)
-//	public ModelAndView adminPage() { 
-//		ModelAndView model = new ModelAndView();
-//		model.addObject("title", "Spring Security Custom Login Form");
-//		model.addObject("message", "This is protected page!");
-//		model.setViewName("admin"); 
-//		return model; 
-//	}
+	@RequestMapping(value = "/admin", method = RequestMethod.GET)
+	public ModelAndView adminPage() { 
+		ModelAndView model = new ModelAndView();
+		model.addObject("title", "Spring Security Custom Login Form");
+		model.addObject("message", "This is protected page!");
+		model.setViewName("admin"); 
+		return model; 
+	}
  
 //	//Spring Security see this :
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
@@ -57,6 +58,11 @@ public class HomeController {
 		model.setViewName("login");
  		return model;
 	}
+	
+	@RequestMapping("403page")  
+	 public String ge403denied() {  
+	  return "redirect:login?denied";  
+	 }  
 		
 		
 //	@RequestMapping("/home")

@@ -15,17 +15,23 @@
 	</beans:bean>
 
 	<http auto-config="true">
-		<form-login login-page="/login" default-target-url="/home"
-			authentication-failure-url="/login?login_error"
-			 username-parameter="email"
-			password-parameter="password" />
+	<access-denied-handler error-page="/403page" />  
+<!-- 	<intercept-url pattern="/admin**" access="ROLE_USER" /> -->
+<intercept-url pattern="/admin" access="ROLE_ADMIN" />
+<intercept-url pattern="/login" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
+<!-- <intercept-url pattern="/admin" access="hasRole('admin')" /> -->
+
+		<form-login login-page="/login" 
+					default-target-url="/home"
+					authentication-failure-url="/login?login_error"
+					 username-parameter="email"
+					password-parameter="password" />
 		<logout logout-success-url="/home" />
 		<!-- włączamy zabezpieczenie przed csrf -->
-		<csrf /> 
-		<!-- <intercept-url pattern="/admin**" access="ROLE_USER" /> -->
+		<csrf />
 	</http>
-	
-	<!-- 			authentication-failure-url="/login?error=1" -->
+
+	<!-- authentication-failure-url="/login?error=1" -->
 
 	<authentication-manager>
 		<authentication-provider>
